@@ -1,0 +1,12 @@
+1)calculated column
+  ✅ Option 1: Month Number (1–12)
+    Sale Month Number :=
+    MONTH(Vehicles[sale_date])
+
+  ✅ Option 2: Month Name (e.g., "January")
+    Sale Month Name :=
+    FORMAT(Vehicles[sale_date], "MMMM")
+      
+  ✅ Option 3: Month-Year (e.g., "Jul 2025") – good for trend analysis
+    Sale Month-Year :=
+    FORMAT(Vehicles[sale_date], "mmm yyyy")
