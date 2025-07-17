@@ -1,3 +1,5 @@
+---------------------------------------------------------------------------------------------
+
 1)calculated column
   ✅ Option 1: Month Number (1–12)
     Sale Month Number :=
@@ -14,3 +16,62 @@
   ✅ Option 3: Month-Year (e.g., "Jul 2025") – good for trend analysis
     Sale Month-Year :=
     FORMAT(Vehicles[sale_date], "mmm yyyy")
+
+---------------------------------------------------------------------------------------------
+
+2)Measures
+
+  ✅  Vehicles Sold
+
+  Vehicles Sold :=
+  CALCULATE(
+      COUNTROWS(Vehicles),
+      Vehicles[status] = "sold"
+  )
+
+
+
+  ✅ Vehicles Not Sold (e.g., available or in_service)
+
+  Vehicles Not Sold :=
+  CALCULATE(
+      COUNTROWS(Vehicles),
+      Vehicles[status] <> "sold"
+  )
+
+   ✅ Optional – Breakdown by Status (dynamic in visuals)
+      Total Vehicles :=COUNTROWS(Vehicles)
+
+
+  ✅  Total Sales Revenue (only for Sold vehicles)
+  Total Sales Revenue :=
+  CALCULATE(
+      SUM(Vehicles[sale_price]),
+      Vehicles[status] = "sold"
+  )
+
+
+ ✅ 
+Average Sale Price = 
+AVERAGE(Vehicles[sale_price])
+
+✅
+Available Vehicles Revenue = 
+CALCULATE(
+    SUM(Vehicles[sale_price]),
+    Vehicles[status] = "available"
+)
+
+✅
+Total Sales price = 
+SUM(Vehicles[sale_price])
+
+
+✅
+Vehicles Sold = 
+  CALCULATE(
+      COUNTROWS(Vehicles),
+      Vehicles[status] = "sold"
+  )
+
+
