@@ -6,6 +6,10 @@
   ✅ Option 2: Month Name (e.g., "January")
     Sale Month Name :=
     FORMAT(Vehicles[sale_date], "MMMM")
+
+    Sale Month Abbrev :=
+    FORMAT(Vehicles[sale_date], "MMM")
+
       
   ✅ Option 3: Month-Year (e.g., "Jul 2025") – good for trend analysis
     Sale Month-Year :=
